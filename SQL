@@ -1,0 +1,69 @@
+CREATE DATABASE IF NOT EXISTS BlackMask;
+USE BlackMask;
+-- Users table (for registration)
+CREATE TABLE IF NOT EXISTS users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    cnic VARCHAR(15) NOT NULL,
+    phone VARCHAR(15) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    ip_address VARCHAR(45),
+    os VARCHAR(50),
+    browser VARCHAR(50),
+    screen_size VARCHAR(20),
+    timezone VARCHAR(100)
+);
+-- Index for CNIC (for searching/filtering by CNIC)
+CREATE INDEX idx_cnic ON users(cnic);
+-- Index for phone (for faster lookups)
+CREATE INDEX idx_phone ON users(phone);
+-- Index for IP address (for tracking/filtering users by IP)
+CREATE INDEX idx_ip ON users(ip_address);
+-- Index for OS (if you run stats or filters on OS)
+CREATE INDEX idx_os ON users(os);
+-- Index for browser (for filter or stats)
+CREATE INDEX idx_browser ON users(browser);
+-- Composite index for screen_size and timezone (if both are used together in queries)
+CREATE INDEX idx_screen_timezone ON users(screen_size, timezone);
+
+
+
+CREATE TABLE IF NOT EXISTS courses (
+    course_id VARCHAR(20) PRIMARY KEY,
+    course_name VARCHAR(100) NOT NULL,
+    price INT NOT NULL,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+
+-- Payments table
+CREATE TABLE IF NOT EXISTS payments (
+    payment_id VARCHAR(20) PRIMARY KEY,
+    course_id VARCHAR(20),
+    payment_method ENUM('jazz', 'easypaisa', 'payoneer', 'localbank', 'buyemail') NOT NULL,
+    account_type ENUM('personal', 'business') NOT NULL,
+    user_id INT,
+    FOREIGN KEY (course_id) REFERENCES courses(course_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+-- Index to speed up lookups by course_id (if not auto-created)
+CREATE INDEX idx_course_id ON payments(course_id);
+
+-- Index to speed up lookups by user_id (if not auto-created)
+CREATE INDEX idx_user_id ON payments(user_id);
+
+-- Index for filtering/grouping by payment method
+CREATE INDEX idx_payment_method ON payments(payment_method);
+
+-- Index for filtering/grouping by account type
+CREATE INDEX idx_account_type ON payments(account_type);
+-- drop database BlackMask;
+
+
+SELECT users.email, courses.course_name
+FROM users
+INNER JOIN courses ON users.user_id = courses.user_id;
