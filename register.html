@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form');
+    const hiddenScreen = document.createElement('input');
+    const hiddenTimezone = document.createElement('input');
+
+    hiddenScreen.type = 'hidden';
+    hiddenScreen.name = 'screen_size';
+    hiddenScreen.value = `${screen.width}x${screen.height}`;
+    form.appendChild(hiddenScreen);
+
+    hiddenTimezone.type = 'hidden';
+    hiddenTimezone.name = 'timezone';
+    hiddenTimezone.value = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    form.appendChild(hiddenTimezone);
+});
+</script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlackMask.com</title>
+
+  <link rel="stylesheet" href="register.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
+</head>
+
+<body>
+  <div class="main">
+    <div class="head">
+      <div id="tsparticles"></div>
+      <h1 class="slogan animate__animated animate__fadeInDown">ʙʟᴀᴄᴋ ᴍᴀꜱᴋ 𓆩ᥫ᭡𓆪</h1>
+      <div class="animate__animated animate__fadeInUp">
+        <img class="dpImg" src="dp.jpeg" alt="HackerXimg" />
+
+        <div class="motive01">
+          <h2 id="b">Breakthrough</h2>
+          <h2 id="l">Layers</h2>
+          <h2 id="a"> Access</h2>
+          <h2 id="c"> Control</h2>
+          <h2 id="k">Kill-switch</h2>
+        </div>
+        <div class="motive02">
+          <h2 id="m">Monitoring</h2>
+          <h2 id="a">Armor</h2>
+          <h2 id="s"> Security</h2>
+          <h2 id="k"> Knowledge</h2>
+        </div>
+
+        <div class="about">
+          <p class="typewriter-text">We fight not to break—but to make a stronger digital future.</p>
+          <p class="typewriter-text">In a world full of threats, be the firewall.</p>
+          <p class="typewriter-text">Be BlackMask.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-container">
+    <h2>Register</h2>
+    <form method="POST" action="register.php">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="cnic">CNIC</label>
+        <input type="text" id="cnic" name="cnic" pattern="\d{5}-\d{7}-\d" placeholder="12345-1234567-1" required />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" pattern="\d{11}" placeholder="03XXXXXXXXX" required />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+
+      <button type="submit" class="register-btn">Register</button>
+    </form>
+  </div>
+
+  <div class="head2">
+    <h2 class="follow">Join US</h2>
+
+    <div class="info">
+      <a href="https://github.com/blackmask-ah" target="_blank">
+        <img class="github" id="gitimg" src="github.png" alt="GitHub" />
+        <span>GitHub</span>
+      </a>
+    </div>
+
+    <div class="info">
+      <a href="https://www.linkedin.com/in/abdullah-as-12s2005" target="_blank">
+        <img class="github" id="gitimg" src="link.jpg" alt="LinkedIn" />
+        <span>LinkedIn</span>
+      </a>
+    </div>
+
+    <div class="info">
+      <a href="https://www.freelancer.com/u/abdullah29as?frm=abdullah29as&sb=t" target="_blank">
+        <img class="github" id="gitimg" src="free.jpg" alt="Freelancer" />
+        <span>Freelancer</span>
+      </a>
+    </div>
+
+    <div class="info">
+      <a href="https://www.tiktok.com/@blackmask_ah?_t=ZS-8w1nZA7UvAu&_r=1" target="_blank">
+        <img class="github" id="gitimg" src="tiktok.png" alt="TikTok" />
+        <span>TikTok</span>
+      </a>
+    </div>
+
+    <div class="info">
+      <a href="https://instagram.com" target="_blank">
+        <img class="github" id="gitimg" src="insta.jpg" alt="Instagram" />
+        <span>Coming Soon....</span>
+      </a>
+    </div>
+  </div>
+</body>
+
+</html>
