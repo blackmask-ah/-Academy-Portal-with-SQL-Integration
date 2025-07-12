@@ -24,10 +24,14 @@ The **Academy Portal** is a responsive web-based platform for managing students,
 - **Extras (Optional):** Bootstrap/TailwindCSS, AJAX
 
 ---
-<img width="1917" height="966" alt="p14" src="https://github.com/user-attachments/assets/8328297e-eb00-4bf3-8cf4-135a4b22f31a" />
-<img width="1918" height="972" alt="p15" src="https://github.com/user-attachments/assets/8ebdce1f-d41f-4fb7-8b6a-f9b4dc83a809" />
-<img width="1419" height="836" alt="p8" src="https://github.com/user-attachments/assets/dbcc5b53-bc6f-4315-aea7-ef9f11632453" />
 
+<p align="center">
+<img width="720" height="966" alt="p14" src="https://github.com/user-attachments/assets/8328297e-eb00-4bf3-8cf4-135a4b22f31a" />
+  <br/>
+<img width="720" height="972" alt="p15" src="https://github.com/user-attachments/assets/8ebdce1f-d41f-4fb7-8b6a-f9b4dc83a809" />
+  <br/>
+<img width="720" height="836" alt="p8" src="https://github.com/user-attachments/assets/dbcc5b53-bc6f-4315-aea7-ef9f11632453" />
+</p>
 
 
 <img width="290" height="205" alt="p10" src="https://github.com/user-attachments/assets/be512a4c-36d3-4a7c-a121-9c055aa79079" />
